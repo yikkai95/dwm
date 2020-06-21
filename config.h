@@ -82,10 +82,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0,                            XF86XK_AudioRaiseVolume,	spawn,		SHCMD("amixer set Master 3+") },
-	{ 0,                            XF86XK_AudioLowerVolume,	spawn,		SHCMD("amixer set Master 3-") },
-	{ 0,                            XF86XK_MonBrightnessUp,	        spawn,		SHCMD("xbacklight -inc 3") },
-	{ 0,                            XF86XK_MonBrightnessDown,	spawn,		SHCMD("xbacklight -dec 3") },
+	{ 0,                            XF86XK_AudioRaiseVolume,	spawn,		SHCMD("amixer sset Master 5%+ ; pkill -RTMIN+10 dwmblocks") },
+	{ 0,                            XF86XK_AudioLowerVolume,	spawn,		SHCMD("amixer sset Master 5%- ; pkill -RTMIN+10 dwmblocks") },
+	{ 0,                            XF86XK_AudioMute,		spawn,		SHCMD("amixer sset Master toggle ; pkill -RTMIN+10 dwmblocks") },
+	{ 0,                            XF86XK_MonBrightnessUp,	        spawn,		SHCMD("xbacklight -inc 3; pkill -RTMIN+11 dwmblocks") },
+	{ 0,                            XF86XK_MonBrightnessDown,	spawn,		SHCMD("xbacklight -dec 3; pkill -RTMIN+11 dwmblocks") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
